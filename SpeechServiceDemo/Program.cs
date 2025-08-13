@@ -1,5 +1,4 @@
-﻿using Azure;
-using Microsoft.CognitiveServices.Speech;
+﻿using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 using Microsoft.CognitiveServices.Speech.Translation;
 
@@ -31,7 +30,8 @@ if (result.Reason == ResultReason.TranslatedSpeech)
         //speech_config.SpeechSynthesisVoiceName = ""; 
         //speech_synthesizer = new SpeechSynthesizer(speech_config);
 
-        speech_synthesizer.SpeakTextAsync(translation.Value).Wait();
+        speech_synthesizer.SpeakTextAsync(translation.Value).Wait(); //speech to speech
+        Console.WriteLine(translation.Value.ToString()); //speech to text
     }
 }
 else if(result.Reason == ResultReason.RecognizedSpeech)
